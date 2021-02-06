@@ -3,6 +3,11 @@
     <img src="../assets/Rick_logo.png" alt="citade-logo"><h4>Citadel of Ricks</h4>
   </div>
 </div>
-<section>
-
+<section class="container">
+   <div class="grid__list">
+     <div *ngFor="let list of ricks">
+       <card [rick]="list"></card>
+     </div>
+   </div>
 </section>
+<app-pagination (currentPage)="getPage($event)" [totalPages]="listPages"></app-pagination>

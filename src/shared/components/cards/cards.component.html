@@ -1,0 +1,10 @@
+<div class="card">
+    <div class="card__content">
+        <div class="img__informations">
+            <img *ngIf="rick.image" [src]="rick.image" alt="">
+        </div>
+        <div class="content__text">
+            <span>{{rick.name + " " + rick.origin.name}}</span>
+        </div>
+    </div>
+</div>
