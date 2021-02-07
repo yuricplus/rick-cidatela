@@ -4,7 +4,11 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ComponentModule } from './../shared/components/component.module';
+import { ListRickModule } from './modules/list-rick/list-rick.module';
+import { RouterModule } from '@angular/router';
+import { HistoricRickModule } from './modules/historic-rick/historic-rick.module';
+import { RickDetailsModule } from './modules/rick-details/rick-details.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -13,8 +17,12 @@ import { ComponentModule } from './../shared/components/component.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ComponentModule,
-    HttpClientModule
+    HttpClientModule,
+    ListRickModule,
+    RouterModule,
+    HistoricRickModule,
+    RickDetailsModule,
+    NoopAnimationsModule
   ],
   providers: [
     HttpClientModule

@@ -1,0 +1,33 @@
+<div class="container-information">
+  <h2>Details</h2>
+  <div class="box-info">
+    <div class="img">
+      <img [src]="rick.image">
+    </div>
+    <div class="informations">
+      <span>Name: {{rick.name}}</span>
+      <span>Dimension: {{rick.origin.name}}</span>
+      <span>Status: {{rick.status}}</span>
+      <button class="btn-primary" (click)="historic(rick.id)">historic</button>
+      <button class="btn-secondary" (click)="openModal()">add travel</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-container" *ngIf="showModal">
+  <div class="modal-content">
+    <h2>Add Travel</h2>
+    <form>
+      <mat-form-field>
+        <mat-label>Origin Travel</mat-label>
+        <input matInput>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Location Travel</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <button>Send informations</button>
+    </form>
+  </div>
+</div>

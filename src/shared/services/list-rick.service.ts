@@ -20,4 +20,9 @@ export class ListRickService {
     return this.http.get<any>(`${this.basePath}${path}`, params)
         .pipe(map(response => response as any | any))
   }
+
+  getHistoric(path: string, params?: { [key: string]: any}):Observable<any>{
+    return this.http.get<any>(`${path}`, params)
+        .pipe(map(response => response as any | any))
+  }
 }

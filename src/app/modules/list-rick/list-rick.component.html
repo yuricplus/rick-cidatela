@@ -1,3 +1,8 @@
-<p>
-  list-rick works!
-</p>
+<section class="container">
+  <div class="grid__list">
+    <div *ngFor="let list of ricks">
+      <card [rick]="list"></card>
+    </div>
+  </div>
+</section>
+<app-pagination (currentPage)="getPage($event)" [totalPages]="listPages"></app-pagination>
