@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router'
 import routesApi from 'src/environments/routes-api';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 import { ListRickService } from '../../../shared/services/list-rick.service';
+
 
 @Component({
   selector: 'app-rick-details',
@@ -11,6 +13,18 @@ import { ListRickService } from '../../../shared/services/list-rick.service';
   styleUrls: ['./rick-details.component.sass']
 })
 export class RickDetailsComponent extends ListRickService implements OnInit {
+
+  public form = new FormGroup({
+    origin: new FormControl('', [Validators.required]),
+    location: new FormControl('', [Validators.required]),
+  });
+
+  origin: object = {};
+  location: string = "";
+
+  get travel(){
+    return this.form.controls;
+  }
 
   public rick: any
   public showModal: boolean = false;
@@ -41,6 +55,18 @@ export class RickDetailsComponent extends ListRickService implements OnInit {
 
   openModal(){
    this.showModal = true;
+  }
+
+  closeModal(){
+    this.showModal = false
+  }
+
+  sendInformations(){
+    if(this.form.status !== 'INVALID') {
+      const id = this.route.snapshot.paramMap.get('id')
+      this.showModal = false
+      this.router.navigate(['/historic', id]);
+    }
   }
 
 }

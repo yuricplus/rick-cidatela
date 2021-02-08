@@ -17,17 +17,22 @@
 <div class="modal-container" *ngIf="showModal">
   <div class="modal-content">
     <h2>Add Travel</h2>
-    <form>
+    <div class="icon--close" (click)="closeModal()"></div>
+    <form [formGroup]="form">
       <mat-form-field>
         <mat-label>Origin Travel</mat-label>
-        <input matInput>
+        <input matInput formControlName="origin">
       </mat-form-field>
+      <div *ngIf="travel.origin.touched && travel.origin.invalid" class="text-danger text-left">
+      </div>
 
       <mat-form-field>
         <mat-label>Location Travel</mat-label>
-        <input matInput>
+        <input matInput formControlName="location">
       </mat-form-field>
-      <button>Send informations</button>
+      <div *ngIf="travel.location.touched && travel.location.invalid" class="text-danger text-left">
+      </div>
+      <button class="btn-secondary" type="button" (click)="sendInformations()">Send informations</button>
     </form>
   </div>
 </div>
